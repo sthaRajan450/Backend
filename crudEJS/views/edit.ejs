@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="/update/<%=user._id%>" method="post" class="px-10">
+        <input class="border w-40 " type="text" value="<%=user.name%>" name="name"> <br><br>
+        <input class="border w-40 " type="email" value="<%=user.email%>" name="email"> <br><br>
+        <input class="border w-40 " type="text" value="<%=user.imageUrl%>" name="imageUrl"> <br><br>
+        <input class="border w-40 " type="submit" value="Update User"> 
+    </form>
+    </div>
+</body>
+
+</html>

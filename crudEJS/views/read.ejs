@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <div class="w-full h-screen bg-zinc-600 text-white p-5">
+        <a href="/">Back to home</a>
+        <h1 class="text-3xl px-3 ">All Users</h1>
+        <div class="flex gap-20 flex-wrap">
+            <%if(users.length>0){%>
+                <%users.forEach(user=>{%>
+                    <div class="w-72 bg-black/50 h-90 p-2  rounded-lg">
+                        <div class=" bg-zinc-500 h-60 mb-4  rounded-lg overflow-hidden">
+                            <img class="w-full h-full object-cover" src=<%=user.imageUrl%> alt="">
+                        </div>
+                        <h1>
+                            <%=user.name%>
+                        </h1>
+                        <h5>
+                            <%=user.email%>
+                        </h5>
+                        <div class="flex  justify-between">
+                            <a href="/edit/<%=user._id%>">Edit User</a>
+                            <a class="text-red-500" href="/delete/<%=user._id%>">Delete User</a>
+                        </div>
+                    </div>
+                    <%})%>
+                        <%}else{%>
+                            <h1>No users yet</h1>
+                            <%}%>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
