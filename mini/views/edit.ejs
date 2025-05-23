@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="bg-black w-full h-screen text-white p-10">
+    <h2 class="text-3xl">You can edit/update post</h2>
+    <form action="/update/<%=post._id%>" method="post">
+        <textarea class="w-full border rounded-lg p-2" name="content" placeholder="Edit your post"
+            rows="5"><%=post.content%></textarea>
+        <input class="bg-orange-500 p-2 rounded-lg cursor-pointer" type="submit" value="update post">
+    </form>
+</body>
+
+</html>

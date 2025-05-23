@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="w-full h-screen bg-black text-white p-20">
+    <div class="flex justify-end ">
+
+        <a href="/logout" class="bg-red-500 p-2 rounded-lg q">Logout</a>
+    </div>
+    <h1 class="text-4xl ">
+        Hello, <%=user.name%>👋
+    </h1>
+    <h2 class="text-xl mt-5">You can create new post</h2>
+
+    <form action="/post" method="post">
+        <textarea name="content" class="w-full resize-none border outline-none mt-5 rounded-lg p-2"
+            placeholder="What's on your mind" rows="5"></textarea>
+        <input class="bg-green-500 p-2 rounded-lg" type="submit" value="create post">
+    </form>
+    <div class="mt-10">
+        <h1 class="text-3xl font-semibold text-gray-400">Your posts:</h1>
+        <% user.posts.forEach((post)=> { %>
+            <div class="bg-gray-600 p-5 rounded-lg mt-5">
+                <h2 class="text-2xl">
+                    <%= user.username %>
+                </h2>
+                <p class="text-2xl">
+                    <%= post.content %>
+                </p>
+                <small class="mt-10 inline-block text-xl">
+                    <%= post.likes.length %> likes
+                </small>
+                <div class="flex justify-between text-xl">
+                    <a href="/like/<%= post._id %> " class="text-blue-500">Like</a>
+                    <a href="/edit/<%= post._id %>">Edit</a>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+
+</body>
+
+</html>
